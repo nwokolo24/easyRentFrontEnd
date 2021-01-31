@@ -1,0 +1,38 @@
+<div class="container">
+
+
+  <p *ngIf="!reservation" class="lead">Could Not Get Reservation</p>
+
+  <div *ngIf="reservation">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ReservationId</th>
+          <th>CustomerId</th>
+          <th>Items</th>
+          <th>Due Date</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngFor="let reserve of reservation">
+          <td>{{reserve.reservationId}}</td>
+          <td>{{reserve.customerId}}</td>
+
+          <td>
+            <div class="btn-group" >
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Reserved Items
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">ID{{reserve.reservationItems.description}} : {{reserve.reservationItems.description}}Description</a>
+              </div>
+            </div>
+          </td>
+
+          <td>{{reserve.dueDate}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
